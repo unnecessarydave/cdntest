@@ -20,9 +20,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: cdn
+          fetch-depth: 0
       - name: Merge master into cdn
         run: |
+          git switch cdn
           git merge origin/master --no-ff
           git push origin cdn
 
