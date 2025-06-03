@@ -23,6 +23,8 @@ jobs:
           fetch-depth: 0
       - name: Merge master into cdn
         run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "Github Actions"
           git switch cdn
           git merge origin/master --no-ff
           git push origin cdn
