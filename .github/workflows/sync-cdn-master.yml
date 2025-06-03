@@ -1,0 +1,28 @@
+name: Sync CDN with master branch
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'res/**'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Merge master into cdn
+        run: |
+          git switch cdn
+          git merge origin/master --no-ff
+          git push origin cdn
+
