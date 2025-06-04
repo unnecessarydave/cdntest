@@ -33,3 +33,7 @@ jobs:
           git rebase -Xtheirs origin/master
           git push -f origin cdn
 
+    # Actions run with default credentials will not auto-trigger other actions,
+    # so we run deploy-cdn manually here.
+    deploy-cdn:
+      uses: unnecessarydave/cdntest/.github/workflows/deploy-cdn.yml@master
