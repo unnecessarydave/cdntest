@@ -12,6 +12,9 @@ on:
 
 permissions:
   contents: write
+  # Need the next two to call deploy-cdn workflow
+  pages: write
+  id-token: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
