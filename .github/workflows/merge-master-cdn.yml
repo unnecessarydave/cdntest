@@ -1,4 +1,4 @@
-name: Rebase CDN from master branch
+name: Merge master branch into CDN
 
 on:
   workflow_dispatch:
@@ -10,34 +10,25 @@ on:
       - 'res/**'
 
 permissions:
-  contents: write
-  # Need the next two to call deploy-cdn workflow
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  rebase:
+  merge:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: cdn
           fetch-depth: 0
           token: ${{ secrets.FOXTRICK_ACTIONS }}
       - name: Merge master into CDN
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "Github Actions"
-          git switch cdn
-          git rebase -Xtheirs origin/master
-          git push -f origin cdn
-
-  # Actions run with default credentials will not auto-trigger other actions,
-  # so we run deploy-cdn manually here.
-  #deploy-cdn:
-  #  uses: unnecessarydave/cdntest/.github/workflows/deploy-cdn.yml@master
-  #  needs: rebase
+          git merge -Xtheirs origin/master
+          git push origin cdn
