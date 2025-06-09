@@ -25,6 +25,7 @@ def init():
     global chpp
     chpp = Client.ChppClient(CONSUMER_KEY, CONSUMER_SECRET)
     chpp.setAccessToken((ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET))
+    session = chpp.getSession()
 
 def getCoaches(id):
     # no get started
