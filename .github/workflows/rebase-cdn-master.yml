@@ -39,4 +39,4 @@ jobs:
   # so we run deploy-cdn manually here.
   deploy-cdn:
     uses: unnecessarydave/cdntest/.github/workflows/deploy-cdn.yml@master
-    needs: sync
+    needs: rebase
