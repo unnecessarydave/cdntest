@@ -30,7 +30,7 @@ jobs:
           CHPP_ACCESS_TOKEN_KEY: ${{ secrets.ACCESS_TOKEN_KEY }}
           CHPP_ACCESS_TOKEN_SECRET: ${{ secrets.CHPP_ACCESS_TOKEN_SECRET }}
         run: |
-          python maintainer/locale/UpdateCoaches.py
+          python maintainer/locale/updateCoaches.py
       - name: Push changes
         run: |
           git config --local user.email "actions@github.com"
