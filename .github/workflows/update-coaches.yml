@@ -20,6 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: cdn
+          token: ${{ secrets.FOXTRICK_ACTIONS }}
       - name: Install Python dependencies
         run: |
           pip install rauth
