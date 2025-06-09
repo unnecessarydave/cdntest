@@ -20,7 +20,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  sync:
+  rebase:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

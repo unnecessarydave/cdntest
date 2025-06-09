@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  sync:
+  update-coaches:
     environment:
       name: CHPP
     runs-on: ubuntu-latest
