@@ -1,4 +1,4 @@
-name: Sync CDN with master branch
+name: Rebase CDN from master branch
 
 on:
   workflow_dispatch:
