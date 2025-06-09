@@ -1,4 +1,4 @@
-name: Update NT/U21 coachesin CDN
+name: Update NT/U21 coaches in CDN
 
 on:
   workflow_dispatch:
