@@ -30,11 +30,7 @@ jobs:
           CHPP_ACCESS_TOKEN_KEY: ${{ secrets.CHPP_ACCESS_TOKEN_KEY }}
           CHPP_ACCESS_TOKEN_SECRET: ${{ secrets.CHPP_ACCESS_TOKEN_SECRET }}
         run: |
-          [[ -z "${CHPP_CONSUMER_KEY}" ]] && echo "CHPP_CONSUMER_KEY not set" && exit 1
-          [[ -z "${CHPP_CONSUMER_SECRET}" ]] && echo "CHPP_CONSUMER_SECRET not set" && exit 1
-          [[ -z "${CHPP_ACCESS_TOKEN_KEY}" ]] && echo "CHPP_ACCESS_TOKEN_KEY not set" && exit 1
-          [[ -z "${CHPP_ACCESS_TOKEN_SECRET}" ]] && echo "CHPP_ACCESS_TOKEN_SECRET not set" && exit 1
-          python maintainer/locale/updateCoaches.py
+          python maintainer/locale/updateCoaches.py res/staff
       - name: Push changes
         run: |
           git config --local user.email "actions@github.com"
