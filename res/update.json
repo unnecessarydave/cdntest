@@ -3,7 +3,7 @@
     "{bcfe9090-dfc6-41d6-a49c-127432ec04ea}": {
       "updates": [
         {
-          "version": "0.19.0.0",
+          "version": "0.17.0.0",
           "update_link": "https://foxtrick-ng.github.io/download/release/firefox/foxtrick-0.18.5.0.xpi"
         }
       ]
