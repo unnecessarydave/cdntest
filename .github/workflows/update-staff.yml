@@ -1,4 +1,4 @@
-name: Update NT/U21 coaches in CDN
+name: Update Foxtrick staff in CDN
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  update-coaches:
+  update-staff:
     environment:
       name: CHPP
     runs-on: ubuntu-latest
@@ -31,9 +31,9 @@ jobs:
           CHPP_ACCESS_TOKEN_KEY: ${{ secrets.CHPP_ACCESS_TOKEN_KEY }}
           CHPP_ACCESS_TOKEN_SECRET: ${{ secrets.CHPP_ACCESS_TOKEN_SECRET }}
         run: |
-          python maintainer/locale/updateCoaches.py res/staff
+          python maintainer/locale/updateFTStaff.py res/staff/foxtrick.json
       - name: Push changes
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "Github Actions"
-          if git commit -am 'automated coaches update'; then git push; fi
+          if git commit -am 'automated staff update'; then git push; fi
