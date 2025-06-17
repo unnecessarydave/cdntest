@@ -2,7 +2,7 @@ name: Update Foxtrick staff in CDN
 
 on:
   workflow_dispatch:
-  
+
 permissions:
   contents: write
 
@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   update-staff:
+    if: github.repository == 'unnecessarydave/cdntest'
     environment:
       name: CHPP
     runs-on: ubuntu-latest

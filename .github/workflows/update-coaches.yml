@@ -2,7 +2,7 @@ name: Update NT/U21 coaches in CDN
 
 on:
   workflow_dispatch:
-  
+
 permissions:
   contents: write
 
@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   update-coaches:
+    if: github.repository == 'unnecessarydave/cdntest'
     environment:
       name: CHPP
     runs-on: ubuntu-latest
