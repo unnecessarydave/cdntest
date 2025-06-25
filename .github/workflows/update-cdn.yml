@@ -13,9 +13,9 @@ concurrency:
 
 jobs:
   staff:
-    if: github.repository == 'unnecessarydave/cdntest'
+    if: github.repository == 'unnecessarydave/cdntest' && always()
     uses: unnecessarydave/cdntest/.github/workflows/update-staff.yml@master
   coaches:
-    if: github.repository == 'unnecessarydave/cdntest'
+    if: github.repository == 'unnecessarydave/cdntest' && always()
     uses: unnecessarydave/cdntest/.github/workflows/update-coaches.yml@master
     needs: staff
