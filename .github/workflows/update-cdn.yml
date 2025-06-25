@@ -15,7 +15,11 @@ jobs:
   staff:
     if: github.repository == 'unnecessarydave/cdntest' && always()
     uses: unnecessarydave/cdntest/.github/workflows/update-staff.yml@master
+    with:
+      secrets: inherit
   coaches:
     if: github.repository == 'unnecessarydave/cdntest' && always()
     uses: unnecessarydave/cdntest/.github/workflows/update-coaches.yml@master
     needs: staff
+    with:
+      secrets: inherit
