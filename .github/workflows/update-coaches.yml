@@ -3,6 +3,8 @@ name: Update NT/U21 coaches in CDN
 on:
   workflow_dispatch:
 
+  workflow_call:
+
 permissions:
   contents: write
 

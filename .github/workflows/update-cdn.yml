@@ -1,0 +1,21 @@
+name: Update CDN
+description: Update CDN with latest data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  staff:
+    if: github.repository == 'unnecessarydave/cdntest'
+    uses: unnecessarydave/cdntest/.github/workflows/update-staff.yml@master
+  coaches:
+    if: github.repository == 'unnecessarydave/cdntest'
+    uses: unnecessarydave/cdntest/.github/workflows/update-coaches.yml@master
+    needs: staff
